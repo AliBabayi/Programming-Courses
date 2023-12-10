@@ -1,0 +1,81 @@
+<div class="flex flex-col md:flex-row">
+  <div class="md:pl-32 w-full md:w-2/3">
+    <div class="font-bold text-4xl mb-10">
+      {{ course.title }}
+    </div>
+    <div class="flex">
+      <div *ngFor="let tag of course.tags"
+           title="{{ tag.description }}"
+           class="inline-block bg-red-100 text-red-500 px-3 me-2 py-2 rounded max-w-max">{{ tag.name }}
+      </div>
+      <span class="px-3 font-bold text-md ms-6 py-2 me-2">{{ course.rating }}</span>
+      <ng-container *ngFor="let star of stars; let i = index" class="">
+        <mat-icon class="py-0.5 " [ngClass]="getStarClass(i)">
+          {{ (course.rating >= i + 1) ? 'star' : (course.rating >= i + 0.5) ? 'star_half' : 'star_border' }}
+        </mat-icon>
+      </ng-container>
+    </div>
+
+    <div class="space-y-5 md:space-y-0 md:grid md:grid-cols-2 py-6 mb-5">
+      <div class="grid grid-cols-4">
+        <div class="text-gray-400">Last Updates</div>
+        <div class="text-gray-400">Level</div>
+        <div class="text-gray-400">Students</div>
+        <div class="text-gray-400">Language</div>
+        <div>{{ date | date:'shortDate' }}</div>
+        <div>{{ course.level }}</div>
+        <div>{{ course.num_students }}</div>
+        <div>English</div>
+      </div>
+    </div>
+    <div class="mb-7">
+      <img src="assets/coding.jpg" alt="coding">
+    </div>
+    <div class="space-y-5">
+      <mat-card class="p-5">
+        <mat-card-content class="text-3xl text-bold">
+          <div class="mb-5">Overview</div>
+          <mat-card-subtitle>
+            <div class="text-black">{{ course.description }}</div>
+          </mat-card-subtitle>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="p-5 ">
+        <mat-card-content class="text-3xl text-bold">
+          <div class="mb-5">What u will learn</div>
+          <mat-card-subtitle>
+            <div class="text-black"><mat-icon class="me-5">done</mat-icon>Alot of stuffs</div>
+          </mat-card-subtitle>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div class="w-full md:w-1/3 p-8">
+    <mat-card>
+      <mat-card-content>
+        <div class="py-5 pl-2 text-2xl">
+          {{ course.price }} Dollars
+        </div>
+        <div class="py-5 pl-2 pr-2">
+          <button mat-flat-button class="bg-blue-500 w-full p-5" color="primary">
+            <mat-icon>feed</mat-icon><div class="ms-28 me-28">Update Details</div>
+          </button>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="text-lg font-bold py-5 pl-2 pr-2">This Course Includes</div>
+        <mat-divider></mat-divider>
+        <div class="text-lg font-bold py-5 pl-2 pr-2">About instructor</div>
+        <div class="py-5 pl-2 pr-2">{{ course.instructor.name }}</div>
+        <div class="pl-2 pr-2 text-sm text-gray-500">{{ course.instructor.email }}</div>
+        <div class="flex font-bold py-5 pl-2 pr-2">
+          <div class="me-3">{{ course.rating }}</div>
+          <ng-container *ngFor="let star of stars; let i = index" class="text-sm">
+            <mat-icon class="text-sm" [ngClass]="getStarClass(i)">
+              {{ (course.rating >= i + 1) ? 'star' : (course.rating >= i + 0.5) ? 'star_half' : 'star_border' }}
+            </mat-icon>
+          </ng-container>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="font-bold text-5xl">Programming Language</div>
+
+<div class="flex flex-wrap justify-between py-10">
+  <mat-card *ngFor="let course of courses.courses" class="mb-7">
+    <mat-card-content>
+      <img src="assets/coding.jpg" alt="coding">
+    </mat-card-content>
+    <mat-card-subtitle>
+      <div class="font-bold text-black text-2xl">{{ course.title }}</div>
+    </mat-card-subtitle>
+
+    <div class="flex pl-8 pr-8 justify-between py-5">
+      <div class="flex">
+        <div class="w-10 h-10 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center">
+          <mat-icon class="">business_center</mat-icon>
+        </div>
+        <div class="py-2.5 pl-3">{{ course.level }}</div>
+      </div>
+      <div class="flex">
+        <div class="w-10 h-10 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center">
+          <mat-icon class="">people_alt</mat-icon>
+        </div>
+        <div class="py-2.5 pl-3">{{ course.num_students }}</div>
+      </div>
+      <div class="flex">
+        <div class="w-10 h-10 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center">
+          <mat-icon class="text-amber-300">star</mat-icon>
+        </div>
+        <div class="py-2.5 pl-3">{{ course.rating }}</div>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-card-actions class="flex justify-between">
+      <div class="pl-6 text-3xl">${{course.price}}.00</div>
+      <div class="pr-2 py-10 text-blue-500">
+        <button [routerLink]="['/course-details', course.id]" mat-button class="text-3xl text-blue-500">
+          <mat-icon class="pb-2 text-blue-500 w-10">feed</mat-icon>
+          <span class="text-blue-500">Details</span>
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>
