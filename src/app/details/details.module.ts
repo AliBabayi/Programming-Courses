@@ -6,10 +6,14 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDividerModule } from "@angular/material/divider";
+import { FormsModule } from "@angular/forms";
+import { ShortDatePipe } from "../pipes/shortDate";
+
 
 @NgModule({
   declarations: [
-    DetailsComponent
+    DetailsComponent,
+    ShortDatePipe
   ],
   imports: [
     CommonModule,
@@ -17,7 +21,8 @@ import { MatDividerModule } from "@angular/material/divider";
     MatIconModule,
     MatCardModule,
     MatButtonModule,
-    MatDividerModule
-  ]
+    MatDividerModule,
+    FormsModule,
+    ]
 })
 export class DetailsModule { }

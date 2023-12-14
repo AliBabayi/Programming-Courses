@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, PipeTransform} from '@angular/core';
 import { ActivatedRoute, Params } from "@angular/router";
+import { DatePipe } from "@angular/common";
+
 
 @Component({
   selector: 'app-details',
@@ -13,11 +15,11 @@ export class DetailsComponent implements OnInit {
   id: any
   stars: number[] = [1, 2, 3, 4, 5];
   date = new Date()
+  isEditable?: boolean;
 
   constructor(private http: HttpClient,
               private activatedRoute: ActivatedRoute,) {
   }
-
 
   ngOnInit() {
     this.activatedRoute.params.subscribe({
@@ -27,11 +29,10 @@ export class DetailsComponent implements OnInit {
     });
     this.http.get('assets/db.json').subscribe(response => {
       this.course = response
-
+      console.log(response)
       for (let detail of this.course.courses) {
         if (this.id == detail.id) {
           this.course = detail
-          console.log(this.course)
         }
       }
       if (this.course == response) {
@@ -40,14 +41,18 @@ export class DetailsComponent implements OnInit {
     });
   }
 
+  toggleEditMode(): void {
+    this.isEditable = !this.isEditable;
+  }
+
   getStarClass(index: number): string {
     const roundedRating = Math.round(this.course.rating);
     if (this.course.rating >= index + 1) {
-      return 'text-yellow-500';
+      return 'text-[#fca34e]';
     } else if (this.course.rating >= index + 0.5 && this.course.rating < roundedRating) {
-      return 'text-yellow-500';
+      return 'text-[#fca34e]';
     } else {
-      return 'text-gray-400';
+      return 'text-[#fca34e]';
     }
   }
 }
