@@ -1,19 +1,21 @@
-<div class="flex flex-col 2xl:flex-row mt-4">
-  <div class="2xl:pl-36 w-full 2xl:w-[63.5%]">
-    <div *ngIf="!isEditable" class="font-bold text-xl 2xl:text-4xl mb-6">
+<div class="flex flex-col 2xl:flex-row">
+  <div class="mt-10 pl-4 pr-4 2xl:pl-36 w-full 2xl:w-[63.5%]">
+    <div *ngIf="!isEditable" class="font-bold text-3xl 2xl:text-4xl mb-6">
       {{ course.title }}
     </div>
     <div *ngIf="isEditable">
-      <textarea type="text" [(ngModel)]="course.title" class="font-bold text-xl 2xl:text-4xl mb-4 w-full" cols="44"></textarea>
+      <textarea type="text" [(ngModel)]="course.title" class="font-bold text-3xl 2xl:text-4xl mb-4 w-full" cols="44"></textarea>
       <button mat-raised-button class="mb-6 w-full 2xl:w-auto" (click)="toggleEditMode()">Save Changes</button>
     </div>
     <div class="flex flex-wrap">
-      <div *ngFor="let tag of course.tags" title="{{ tag.description }}" class="inline-block bg-red-100 text-red-500 px-2 me-2 py-2 rounded max-w-max text-sm 2xl:text-md">
+      <div *ngFor="let tag of course.tags"
+           title="{{ tag.description }}"
+           class="inline-block bg-red-100 text-red-500 px-2 me-2 py-2 rounded max-w-max text-[11px] 2xl:text-[14px]">
         {{ tag.name }}
       </div>
-      <span class="px-2 2xl:px-3 font-bold text-md ms-2 py-2 me-2">{{ course.rating }}</span>
+      <span class="px-2 2xl:px-3 font-bold text-[11px] 2xl:text-[15px] ms-2 py-2 me-2">{{ course.rating }}</span>
       <ng-container *ngFor="let star of stars; let i = index" class="">
-        <mat-icon class="py-0.5 text-md 2xl:text-xl" [ngClass]="getStarClass(i)">
+        <mat-icon class="py-3 text-[11px] 2xl:text-[20px] 2xl:py-2" [ngClass]="getStarClass(i)">
           {{ (course.rating >= i + 1) ? 'star' : (course.rating >= i + 0.5) ? 'star_half' : 'star_border' }}
         </mat-icon>
       </ng-container>
@@ -36,7 +38,7 @@
     </div>
     <div class="space-y-5">
       <mat-card class="p-4 2xl:p-5">
-        <mat-card-content class="text-md 2xl:text-3xl text-bold">
+        <mat-card-content class="text-2xl 2xl:text-3xl text-bold">
           <div class="mb-3 2xl:mb-5">Overview</div>
           <mat-card-subtitle *ngIf="!isEditable">
             <div class="text-black">{{ course.description }}</div>
