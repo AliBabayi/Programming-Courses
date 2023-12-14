@@ -1,12 +1,12 @@
-<div class="sm:pl-16 py-6 sm:pr-16">
-  <div class="font-bold text-3xl md:text-5xl mb-5">Programming Language</div>
-  <div class="flex flex-wrap justify-between py-5 2xl:py-10">
+<div class="pr-3 pl-3 sm:pl-16 py-6 sm:pr-16">
+  <div class="font-bold text-3xl md:text-5xl mb-5 justify-center lg:justify-between">Programming Language</div>
+  <div class="flex flex-wrap justify-center lg:justify-between py-5 2xl:py-10">
     <mat-card *ngFor="let course of courses.courses" class="mb-9">
       <div class="py-3 pr-3 ms-auto">
         <button mat-icon-button
                 (click)="toggleAddCourse(course)"
                 [ngClass]="{'active': isButtonActive[course.id]}">
-                <mat-icon [ngClass]="{'active': isButtonActive[course.id]}">favorite_outline</mat-icon>
+          <mat-icon [ngClass]="{'active': isButtonActive[course.id]}">favorite_outline</mat-icon>
         </button>
       </div>
       <mat-card-content>
@@ -15,7 +15,6 @@
       <mat-card-subtitle>
         <div class="font-bold text-black text-2xl pt-[270px] pl-[30px] mr-[30px] mt-2">{{ course.title }}</div>
       </mat-card-subtitle>
-
       <div class="flex pl-8 pr-8 justify-between py-3 mb-12 mt-3">
         <div class="flex">
           <div class="w-10 h-10 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center">

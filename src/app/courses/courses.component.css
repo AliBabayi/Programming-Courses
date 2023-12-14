@@ -1,9 +1,9 @@
 mat-card {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   border: #d3d3d3;
+  border-radius: 10px;
   min-width: 495px;
   min-height: 510px;
-  border-radius: 10px;
 }
 
 mat-card-content img {
@@ -26,6 +26,16 @@ button.active {
   z-index: 11;
   background-color: #fab073;
 }
+
 mat-icon.active {
   color: white;
 }
+
+@media (max-width: 520px) {
+  mat-card {
+    min-width: 100%;
+
+    min-height: unset;
+  }
+}
+
