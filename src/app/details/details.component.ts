@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import {Component, OnInit, PipeTransform} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from "@angular/router";
-import { DatePipe } from "@angular/common";
 
 
 @Component({

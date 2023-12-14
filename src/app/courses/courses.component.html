@@ -2,6 +2,13 @@
   <div class="font-bold text-3xl md:text-5xl mb-5">Programming Language</div>
   <div class="flex flex-wrap justify-between py-5 2xl:py-10">
     <mat-card *ngFor="let course of courses.courses" class="mb-9">
+      <div class="py-3 pr-3 ms-auto">
+        <button mat-icon-button
+                (click)="toggleAddCourse(course)"
+                [ngClass]="{'active': isButtonActive[course.id]}">
+                <mat-icon [ngClass]="{'active': isButtonActive[course.id]}">favorite_outline</mat-icon>
+        </button>
+      </div>
       <mat-card-content>
         <img src="assets/coding.jpg" alt="coding" class="w-full h-[270px] object-cover">
       </mat-card-content>
