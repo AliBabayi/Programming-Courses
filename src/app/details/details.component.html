@@ -4,7 +4,8 @@
       {{ course.title }}
     </div>
     <div *ngIf="isEditable">
-      <textarea type="text" [(ngModel)]="course.title" class="font-bold text-3xl lg:text-4xl mb-4 w-full" cols="44"></textarea>
+      <textarea type="text" [(ngModel)]="course.title" class="font-bold text-3xl lg:text-4xl mb-4 w-full" cols="44">
+      </textarea>
       <button mat-raised-button class="mb-6 w-full lg:w-auto" (click)="toggleEditMode()">Save Changes</button>
     </div>
     <div class="flex flex-wrap">
