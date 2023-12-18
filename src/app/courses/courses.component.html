@@ -1,7 +1,7 @@
-<div class="pr-3 pl-3 sm:pl-16 py-6 sm:pr-16">
-  <div class="font-bold text-3xl md:text-5xl mb-5 justify-center lg:justify-between">Programming Language</div>
-  <div class="flex flex-wrap justify-center lg:justify-between py-5 2xl:py-10">
-    <mat-card *ngFor="let course of courses.courses" class="mb-9">
+<div class="pr-3 pl-3 sm:pl-16 py-6 sm:pr-14">
+  <div class="font-bold text-3xl md:text-4xl xl:text-5xl mb-5 justify-center lg:justify-between">Programming Language</div>
+  <div class="flex flex-wrap justify-between py-5 2xl:py-10">
+    <mat-card *ngFor="let course of courses.courses" class="mb-9 mr-3">
       <div class="py-3 pr-3 ms-auto">
         <button mat-icon-button
                 (click)="toggleAddCourse(course)"
@@ -13,33 +13,33 @@
         <img src="assets/coding.jpg" alt="coding" class="w-full h-[270px] object-cover">
       </mat-card-content>
       <mat-card-subtitle>
-        <div class="font-bold text-black text-2xl pt-[270px] pl-[30px] mr-[30px] mt-2">{{ course.title }}</div>
+        <div class="font-bold text-black text-xl 2xl:text-2xl pt-[150px] xl:pt-[150px] lg:pt-[110px] 2xl:pt-[270px] pl-[30px] 2xl:pl-[30px] mr-[30px] 2xl:mr-[30px] mt-2">{{ course.title }}</div>
       </mat-card-subtitle>
-      <div class="flex pl-8 pr-8 justify-between py-3 mb-12 mt-3">
+      <div class="flex pl-7 2xl:pl-8 pr-8 justify-between py-3 2xl:mb-12">
         <div class="flex">
-          <div class="w-10 h-10 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center">
+          <div class="w-10 lg:w-7 h-10 lg:h-7 xl:h-10 xl:w-10 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center">
             <mat-icon class="text-black">business_center</mat-icon>
           </div>
-          <div class="py-2.5 pl-2">{{ course.level }}</div>
+          <div class="py-2.5 pl-2 lg:py-1.5 xl:py-2.5 lg:me-1 xl:me-0">{{ course.level }}</div>
         </div>
         <div class="flex">
-          <div class="w-10 h-10 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center">
+          <div class="w-10 lg:w-7 h-10 lg:h-7 xl:h-10 xl:w-10 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center">
             <mat-icon class="text-black">people_alt</mat-icon>
           </div>
-          <div class="py-2.5 pl-2">{{ course.num_students }}</div>
+          <div class="py-2.5 pl-2 lg:me-1 xl:me-0 lg:py-1.5 xl:py-2.5">{{ course.num_students }}</div>
         </div>
         <div class="flex">
-          <div class="w-10 h-10 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center">
+          <div class="w-10 lg:w-7 h-10 lg:h-7 xl:h-10 xl:w-10 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center">
             <mat-icon class="text-amber-300">star</mat-icon>
           </div>
-          <div class="py-2.5 pl-2">{{ course.rating }}</div>
+          <div class="py-2.5 pl-2 lg:py-1.5 xl:py-2.5">{{ course.rating }}</div>
         </div>
       </div>
       <mat-divider></mat-divider>
       <mat-card-actions class="flex justify-between">
-        <div class="pl-6 text-2xl font-extrabold">${{course.price}}.00</div>
+        <div class="pl-6 text-2xl lg:text-xl xl:text-2xl font-extrabold">${{course.price}}.00</div>
         <div class="pr-2 py-3 text-blue-500">
-          <button [routerLink]="['/course-details', course.id]" mat-button class="text-2xl text-blue-500">
+          <button [routerLink]="['/course-details', course.id]" mat-button class="text-2xl lg:text-xl xl:text-2xl text-blue-500">
             <mat-icon class="pb-1 text-blue-500 w-10">feed</mat-icon>
             <span class="text-blue-500">Details</span>
           </button>
